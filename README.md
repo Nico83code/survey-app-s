@@ -21,6 +21,7 @@ in this array you can add 2 kind of questions,
 - single_choice
 
 example:
+```
 {
 stepNumber: 1,
 question: "Question one?",
@@ -40,8 +41,8 @@ options: [
 stepNumber: 3,
 question: "Question three?",
 type: "open_question",
-},
 }
+```
 
 After the last step it will show the summary page with all the answers before you submit
 
