@@ -18,6 +18,7 @@ const Summary = () => {
   });
 
   const handleSubmit = useCallback(() => {
+    window.alert('answers submitted');
     console.log(summary, 'submitted');
     navigate(`/thankyou`);
   }, [navigate, summary]);
