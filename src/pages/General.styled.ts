@@ -7,11 +7,14 @@ export const Container = styled.div`
   border: 1px solid black;
   border-radius: 10px;
   align-items: center;
+  text-align: center;
   padding: 50px 20px;
-  width: 60%;
-  height: 40%;
+  width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: auto;
   h2 {
-    font-size: 40px;
+    font-size: 30px;
     line-height: 1.1em;
   }
 
@@ -34,7 +37,7 @@ export const Container = styled.div`
     }
 
     cursor: pointer;
-    padding: 10px 5px;
+
     margin: 30px 5px;
   }
 `;
