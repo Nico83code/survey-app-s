@@ -1,8 +1,8 @@
-type QuestionType = "open_question" | "multiple_choice" | "single_choice";
+type QuestionType = 'open_question' | 'single_choice';
 
 export interface StepOptions {
- value: number | string;
- label: string;
+  value: number | string;
+  label: string;
 }
 
 export interface Step {

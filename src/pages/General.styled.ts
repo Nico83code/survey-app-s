@@ -9,9 +9,7 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
   padding: 50px 20px;
-  width: auto;
-  margin-left: 10px;
-  margin-right: 10px;
+  width: 100%;
   height: auto;
   h2 {
     font-size: 30px;

@@ -1,7 +1,8 @@
 import { FC, useState } from 'react';
 
-import { Step, StepOptions } from '../../interfaces/Step';
+import { Step } from '../../interfaces/Step';
 import {
+  InputWrapper,
   OpenQuestionInput,
   SingleChoiceInput,
   SingleChoiceWrapper,
@@ -24,24 +25,6 @@ const StepContent: FC<StepContentProps> = ({
 }) => {
   const [answer, setAnswer] = useState<any>('');
 
-  const handleMultiChoice = (option: StepOptions) => {
-    if (Array.isArray(answer)) {
-      const isAlreadyChoosen = answer.some(
-        (item) => item.value === option.value
-      );
-
-      if (isAlreadyChoosen) {
-        setAnswer(answer.filter((item) => item.value !== option.value));
-        return;
-      }
-
-      setAnswer([...answer, option]);
-      return;
-    }
-
-    setAnswer([option]);
-  };
-
   const handleNextStep = () => {
     if (!answer) {
       window.confirm('Hey! Choose an answer!');
@@ -56,54 +39,34 @@ const StepContent: FC<StepContentProps> = ({
   return (
     <StepContentContainer>
       <h2>{question}</h2>
+      <InputWrapper align={type}>
+        {type === 'open_question' && (
+          <OpenQuestionInput
+            type='text'
+            placeholder='Type your answer here'
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+          />
+        )}
 
-      {type === 'open_question' && (
-        <OpenQuestionInput
-          type='text'
-          placeholder='Type your answer here'
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-        />
-      )}
-
-      {type === 'multiple_choice' &&
-        options &&
-        options.map((option) => {
-          const { label, value } = option;
-
-          return (
-            <div key={value}>
-              <input
-                id={label}
-                type='checkbox'
-                name='option'
-                value={value}
-                onChange={() => handleMultiChoice(option)}
-              />
-              <label htmlFor={label}>{label}</label>
-            </div>
-          );
-        })}
-
-      {type === 'single_choice' &&
-        options &&
-        options.map((option) => {
-          const { label, value } = option;
-
-          return (
-            <SingleChoiceWrapper key={value}>
-              <SingleChoiceInput
-                id={label}
-                type='radio'
-                name='option'
-                value={value}
-                onChange={() => setAnswer(option)}
-              />
-              <label htmlFor={label}>{label}</label>
-            </SingleChoiceWrapper>
-          );
-        })}
-
+        {type === 'single_choice' &&
+          options &&
+          options.map((option) => {
+            const { label, value } = option;
+            return (
+              <SingleChoiceWrapper key={value}>
+                <SingleChoiceInput
+                  id={label}
+                  type='radio'
+                  name='option'
+                  value={value}
+                  onChange={() => setAnswer(option)}
+                />
+                <label htmlFor={label}>{label}</label>
+              </SingleChoiceWrapper>
+            );
+          })}
+      </InputWrapper>
       <StepContentButtonWrapper>
         <button type='button' onClick={onPrev}>
           Back
