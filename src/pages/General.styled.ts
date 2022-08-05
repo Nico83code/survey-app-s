@@ -8,9 +8,10 @@ export const Container = styled.div`
   border-radius: 10px;
   align-items: center;
   text-align: center;
-  padding: 50px 20px;
+  padding: 50px 50px;
   width: 100%;
-  height: auto;
+  max-width: 60%;
+  height: 50%;
   h2 {
     font-size: 30px;
     line-height: 1.1em;

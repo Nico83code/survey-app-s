@@ -14,7 +14,7 @@ const Home = () => {
       <h2>Hey There! and Welcome</h2>
       <p>We're doing some research to improve our service,</p>
       <p>
-        The survey shoud only take 1 minutes - your feedback is appreciated.
+        The survey should only take 1 minutes - your feedback is appreciated.
       </p>
 
       <button type='button' onClick={handleStart}>
