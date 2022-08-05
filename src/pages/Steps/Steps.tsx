@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import data from '../../mock/data';
@@ -12,21 +12,19 @@ const Step = () => {
     return steps.find((step) => step.stepNumber === Number(stepNumber));
   }, [stepNumber]);
 
-  const handleNextStep = useCallback(
-    (answer: any) => {
-      const { steps } = data;
-      const nextStepNumber = Number(stepNumber) + 1;
-      const hasNextStep = steps.find(
-        (step) => step.stepNumber === Number(nextStepNumber)
-      );
+  const handleNextStep = useCallback(() => {
+    const { steps } = data;
+    const nextStepNumber = Number(stepNumber) + 1;
+    const hasNextStep = steps.find(
+      (step) => step.stepNumber === Number(nextStepNumber)
+    );
 
-      if (hasNextStep) {
-        navigate(`/steps/${nextStepNumber}`);
-        return;
-      }
-    },
-    [stepNumber, navigate]
-  );
+    if (hasNextStep) {
+      navigate(`/steps/${nextStepNumber}`);
+      return;
+    }
+    navigate(`/summary`);
+  }, [stepNumber, navigate]);
 
   const handleBack = useCallback(() => navigate(-1), [navigate]);
 
