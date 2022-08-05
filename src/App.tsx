@@ -1,13 +1,11 @@
-import React from 'react';
+import { AppContainer } from './App.styled';
 import AppRoutes from './routes';
-
-import './App.css';
 
 function App() {
   return (
-    <div className='App'>
+    <AppContainer>
       <AppRoutes />
-    </div>
+    </AppContainer>
   );
 }
 

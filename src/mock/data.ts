@@ -1,4 +1,10 @@
-const data = {
+import { Step } from '../interfaces/Step';
+
+interface ResponseData {
+  steps: Array<Step>;
+}
+
+const data: ResponseData = {
   steps: [
     {
       stepNumber: 1,
@@ -12,7 +18,7 @@ const data = {
       options: [
         { value: 'happy', label: 'Happy' },
         { value: 'average', label: 'Average' },
-        { value: 'notatall', label: 'Not at all' },
+        { value: 'Not at all', label: 'Not at all' },
       ],
     },
   ],
