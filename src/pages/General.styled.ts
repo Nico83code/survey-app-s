@@ -10,17 +10,28 @@ export const Container = styled.div`
   padding: 50px 20px;
   width: 60%;
   height: 40%;
+  h2 {
+    font-size: 40px;
+    line-height: 1.1em;
+  }
 
   p {
-    font-size: 20px;
+    font-size: 16px;
   }
   button {
     border: 1px solid black;
-    border-radius: 10px;
-    width: 100px;
-    height: 40px;
+    border-radius: 6px;
+    width: 150px;
+    height: 50px;
+    font-family: 'Visby Bold', Sans-serif;
+    font-size: 16px;
     font-weight: bold;
-    color: black;
+    color: white;
+    background: #051441;
+
+    &:hover {
+      background: #102566;
+    }
 
     cursor: pointer;
     padding: 10px 5px;

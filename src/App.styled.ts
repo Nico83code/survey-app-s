@@ -7,4 +7,6 @@ export const AppContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #f2f7fb;
+  color: #051441;
 `;
